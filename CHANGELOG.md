@@ -1,3 +1,6 @@
-## 1.1.5
+## 1.1.6
 
-* TODO: Describe initial release.
+* Fixed various bugs to improve stability.
+* Refactored code for better maintainability and best practices.
+* Improved performance for fade animations.
+* Initial public release on pub.dev.

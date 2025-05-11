@@ -1,6 +1,6 @@
 name: fade_widget_kit
-description: A Flutter package for fade-in/out animations.
-version: 1.1.5
+description: A Flutter package that simplifies adding fade-in and fade-out animations to widgets, ideal for transitions and UI enhancements.
+version: 1.1.6
 homepage: https://github.com/khaled-hassan1/fade_widget_kit
 repository: https://github.com/khaled-hassan1/fade_widget_kit
 # publish_to: https://pub.dev
