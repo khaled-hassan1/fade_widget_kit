@@ -137,3 +137,7 @@ This package is compatible with Flutter 1.17.0 and above.
 ### Dependencies
 
 - [visibility_detector](https://pub.dev/packages/visibility_detector): Used to detect when widgets enter the viewport
+
+### License
+
+This package is released under the MIT License.
