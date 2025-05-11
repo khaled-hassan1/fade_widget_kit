@@ -1,6 +1,40 @@
+
 # Fade Widget Kit
 
 A lightweight Flutter package that provides elegant fade animations for widgets in various directions. Easily create modern UI transitions that trigger automatically based on widget visibility.
+
+[![pub package](https://img.shields.io/badge/pub-v1.0.1-blue)](https://pub.dev/packages/fade_widget_kit)
+[![flutter](https://img.shields.io/badge/flutter-website-blue)](https://flutter.dev)
+[![license: MIT](https://img.shields.io/badge/license-MIT-purple)](https://opensource.org/licenses/MIT)
+
+## Demo
+
+### Mobile Demo
+
+https://github.com/user-attachments/assets/15835380-4620-4a9c-87d8-2d12ccdf48d7
+
+### Web/Desktop Demo
+
+
+
+https://github.com/user-attachments/assets/39a919f6-4800-4b42-8450-d48d140c6f8f
+
+
+
+## Installation
+
+Add `fade_widget_kit` to your `pubspec.yaml`:
+
+```yaml
+dependencies:
+  fade_widget_kit: ^1.0.1
+```
+
+Then run:
+
+```bash
+flutter pub get
+```
 
 ## Features
 
@@ -9,21 +43,6 @@ A lightweight Flutter package that provides elegant fade animations for widgets 
 - **Visibility-based triggering**: Animations automatically start when widgets become visible on screen
 - **Simple API**: Apply animations with minimal code
 - **Performance optimized**: Efficiently manages animations to avoid performance issues
-
-## Getting started
-
-Add `fade_widget_kit` to your `pubspec.yaml`:
-
-```yaml
-dependencies:
-  fade_widget_kit: ^1.0.0
-```
-
-Then run:
-
-```
-flutter pub get
-```
 
 ## Usage
 
@@ -35,52 +54,29 @@ import 'package:fade_widget_kit/fade_widget_kit.dart';
 
 ### Basic usage
 
-Wrap any widget with `FadeUpWidget` to add a smooth fade-in animation from the bottom:
+Wrap any widget with `FadeWidgetKit` to add a smooth fade-in animation:
 
 ```dart
-FadeUpWidget(
+const FadeWidgetKit(
   child: Text('This text will fade in from the bottom'),
 )
 ```
 
 ### Customizing animations
 
-You can customize the animation duration, delay, and direction:
+Customize the animation duration, delay, and direction:
 
 ```dart
-FadeUpWidget(
+FadeWidgetKit(
   duration: const Duration(milliseconds: 1200),
   delay: const Duration(milliseconds: 300),
   direction: FadeDirection.left,
   child: Card(
-    child: Padding(
-      padding: const EdgeInsets.all(16.0),
+    child: const Padding(
+      padding: EdgeInsets.all(16.0),
       child: Text('This card will fade in from the left after a delay'),
     ),
   ),
-)
-```
-
-### Staggered animations
-
-Create staggered animations by using different delay values:
-
-```dart
-Column(
-  children: [
-    FadeUpWidget(
-      delay: const Duration(milliseconds: 0),
-      child: Text('First item'),
-    ),
-    FadeUpWidget(
-      delay: const Duration(milliseconds: 100),
-      child: Text('Second item'),
-    ),
-    FadeUpWidget(
-      delay: const Duration(milliseconds: 200),
-      child: Text('Third item'),
-    ),
-  ],
 )
 ```
 
@@ -93,51 +89,126 @@ The package supports four animation directions:
 - `FadeDirection.left`: Widget fades in from right to its position
 - `FadeDirection.right`: Widget fades in from left to its position
 
-## Example
+### Staggered animations
 
-A complete example showcasing a staggered list animation:
+Create staggered animations by using different delay values:
 
 ```dart
-import 'package:flutter/material.dart';
-import 'package:fade_widget_kit/fade_widget_kit.dart';
+const Column(
+  children: [
+    FadeWidgetKit(
+      delay: Duration(milliseconds: 0),
+      child: Text('First item'),
+    ),
+    FadeWidgetKit(
+      delay: Duration(milliseconds: 100),
+      child: Text('Second item'),
+    ),
+    FadeWidgetKit(
+      delay: Duration(milliseconds: 200),
+      child: Text('Third item'),
+    ),
+  ],
+)
+```
 
+## Complete Example
+
+Here's a full example showcasing a staggered list animation with alternating directions:
+
+```dart
+import 'package:fade_widget_kit/fade_widget_kit.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+@immutable
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'FadeWidgetKit Example',
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+      ),
+      home: const MyHomePage(),
+    );
+  }
+}
+
+@immutable
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Fade Widget Example')),
-      body: ListView.builder(
-        itemCount: 20,
-        itemBuilder: (context, index) {
-          return FadeUpWidget(
-            delay: Duration(milliseconds: index * 50),
-            child: Card(
-              margin: const EdgeInsets.all(8),
+      appBar: AppBar(title: const Text('FadeWidgetKit Example')),
+      body: const FadeList(),
+    );
+  }
+}
+
+@immutable
+class FadeList extends StatelessWidget {
+  const FadeList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: 20,
+      itemBuilder: (context, index) {
+        final delay = Duration(milliseconds: index * 150);
+        final direction =
+            index.isEven ? FadeDirection.left : FadeDirection.right;
+
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+          child: FadeWidgetKit(
+            delay: delay,
+            duration: const Duration(milliseconds: 500),
+            direction: direction,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.grey.shade200,
+                borderRadius: BorderRadius.circular(8.0),
+              ),
               child: ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: Colors.blue.shade300,
+                  child: Text(
+                    '${index + 1}',
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                ),
                 title: Text('Item ${index + 1}'),
-                subtitle: Text('This item fades in with a staggered effect'),
+                subtitle: const Text('This item fades and slides into view.'),
               ),
             ),
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
 ```
 
-## Additional information
+## Compatibility
 
-### Compatibility
+This package is compatible with:
+- Dart 3 compatible
+- Flutter 1.17.0 and above
+- Works on all platforms: Android, iOS, Web, macOS, Windows, and Linux
 
-This package is compatible with Flutter 1.17.0 and above.
-
-### Dependencies
+## Dependencies
 
 - [visibility_detector](https://pub.dev/packages/visibility_detector): Used to detect when widgets enter the viewport
 
-### License
+## License
 
 This package is released under the MIT License.

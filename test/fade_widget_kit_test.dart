@@ -33,7 +33,7 @@ void main() {
 Widget _wrapped(Widget child, {required Key key}) {
   return MaterialApp(
     home: Scaffold(
-      body: FadeUpWidget(
+      body: FadeWidgetKit(
         key: key,
         duration: const Duration(milliseconds: 800),
         delay: const Duration(milliseconds: 200),
