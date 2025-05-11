@@ -1,9 +1,10 @@
 
 # Fade Widget Kit
+*by **Khaled Ghaly** — Flutter Developer*
 
 A lightweight Flutter package that provides elegant fade animations for widgets in various directions. Easily create modern UI transitions that trigger automatically based on widget visibility.
 
-[![pub package](https://img.shields.io/badge/pub-v1.1.3-blue)](https://pub.dev/packages/fade_widget_kit)
+[![pub package](https://img.shields.io/badge/pub-v1.1.4-blue)](https://pub.dev/packages/fade_widget_kit)
 [![flutter](https://img.shields.io/badge/flutter-website-blue)](https://flutter.dev)
 [![license: MIT](https://img.shields.io/badge/license-MIT-purple)](https://opensource.org/licenses/MIT)
 
@@ -23,7 +24,7 @@ Add `fade_widget_kit` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  fade_widget_kit: ^1.1.3
+  fade_widget_kit: ^1.1.4
 ```
 
 Then run:
