@@ -11,15 +11,11 @@ A lightweight Flutter package that provides elegant fade animations for widgets 
 
 ### Mobile Demo
 
-https://github.com/user-attachments/assets/15835380-4620-4a9c-87d8-2d12ccdf48d7
+https://github.com/user-attachments/assets/f4a3f5cf-950a-4566-8f15-d537eea32482
 
 ### Web/Desktop Demo
 
-
-
 https://github.com/user-attachments/assets/39a919f6-4800-4b42-8450-d48d140c6f8f
-
-
 
 ## Installation
 
