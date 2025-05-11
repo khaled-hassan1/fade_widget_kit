@@ -16,7 +16,7 @@ Add `fade_widget_kit` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  fade_widget_kit: ^0.0.1
+  fade_widget_kit: ^1.0.0
 ```
 
 Then run:
