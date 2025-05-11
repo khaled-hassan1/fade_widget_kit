@@ -1,0 +1,1 @@
+enum FadeDirection { up, down, left, right }
