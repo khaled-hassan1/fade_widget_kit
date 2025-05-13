@@ -1,6 +1,5 @@
 // test/fade_up_widget_test.dart
 
-import 'package:fade_widget_kit/enum.dart';
 import 'package:fade_widget_kit/fade_widget_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
